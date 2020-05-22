@@ -30,17 +30,31 @@ document.addEventListener('DOMContentLoaded', createCalculator);
 
 // Functions:
 function createCalculator() {
-  // Creates Keypad, Display Output, and Centers Header Text
+  // Creates Calculator, Display Output and Styling
   title.style.textAlign = 'center';
+  document.body.style.backgroundColor = '#dfe3ee';
+  container.setAttribute('align', 'center');
+  calculatorContainer.style.border = 'thick solid #000000';
+  calculatorContainer.style.backgroundColor = '#ffffff';
+  calculatorContainer.style.padding = '20px';
+  calculatorContainer.style.height = '500px';
+  calculatorContainer.style.width = '500px';
   displayOutput.style.border = 'thin solid #000000';
   displayOutput.style.padding = '10px';
-  displayOutput.style.margin = '10px';
+  displayOutput.style.margin = '10px 10px 30px 10px';
   displayOutput.style.backgroundColor = '#ECECEC';
+  createKeypad();
+}
+
+function createKeypad() {
   for (let i = 0; i < 10; i++) {
     const digits = document.createElement('button');
     digits.setAttribute('class', `number num_${i}`);
     digits.setAttribute('value', i);
     digits.innerText = i;
+    digits.style.height = '40px';
+    digits.style.width = '40px';
+    digits.style.fontSize = '15px';
     addEventListener(digits);
     keypad.appendChild(digits);
   }
@@ -124,6 +138,7 @@ function addEventListener(element) {
     switch (value) {
       case 'add':
         str = '+';
+        console.log(str);
         break;
       case 'sub':
         str = '-';
@@ -145,8 +160,8 @@ function addEventListener(element) {
         break;
     }
     calculation.push(str);
+    console.log(calculation);
     displayOutput.innerHTML = calculation.join('');
-    []
   })
 };
 
