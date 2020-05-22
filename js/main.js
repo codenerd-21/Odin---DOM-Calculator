@@ -36,18 +36,21 @@ function createKeyPad() {
     digits.innerText = i;
     addEventListener(digits);
     keypad.appendChild(digits);
-    createMiscBtns();
+    createEqualBtn();
   }
 }
 
-function createMiscBtns() {
+function createEqualBtn() {
   const equalBtn = document.createElement('button');
   equalBtn.setAttribute('class', 'misc equal');
   equalBtn.setAttribute('value', 'equal');
   equalBtn.innerText = '=';
   addEventListener(equalBtn);
   miscBtns.appendChild(equalBtn);
+  createClearBtn();
+}
 
+function createClearBtn() {
   const clearBtn = document.createElement('button');
   clearBtn.setAttribute('class', 'misc clear');
   clearBtn.setAttribute('value', 'clear');
@@ -103,8 +106,48 @@ function createPlusMinusBtn() {
   plusminusBtn.setAttribute('value', 'negative')
   plusminusBtn.innerText = '+/-';
   addEventListener(plusminusBtn);
-  keypad.appendChild(negBtn);
+  keypad.appendChild(plusminusBtn);
 }
+
+function addEventListener(element) {
+  element.addEventListener('click', event => {
+    let value = element.value;
+    let str = '';
+
+    switch (value) {
+      case 'add':
+        str = '+';
+        break;
+      case 'sub':
+        str = '-';
+        break;
+      case 'mult':
+        str = '*';
+        break;
+      case 'div':
+        str = '/';
+        break;
+      case 'equal':
+        str = '=';
+        break;
+      case 'clear':
+        calculation = [];
+        break;
+      default:
+        str = value;
+        break;
+    }
+    calculation.push(str);
+    displayOutput.innerHTML = calculation.join('');
+    []
+  })
+}
+
+
+
+
+
+
 
 
 
