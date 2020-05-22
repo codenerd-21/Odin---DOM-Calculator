@@ -2,6 +2,7 @@
 
 
 // Variables:
+let calculation = [];
 
 
 // Cached Element References:
@@ -24,11 +25,17 @@ calculatorContainer.appendChild(miscBtns);
 
 
 // Event Listener:
-document.addEventListener('DOMContentLoaded', createKeyPad);
+document.addEventListener('DOMContentLoaded', createCalculator);
 
 
 // Functions:
-function createKeyPad() {
+function createCalculator() {
+  // Creates Keypad, Display Output, and Centers Header Text
+  title.style.textAlign = 'center';
+  displayOutput.style.border = 'thin solid #000000';
+  displayOutput.style.padding = '10px';
+  displayOutput.style.margin = '10px';
+  displayOutput.style.backgroundColor = '#ECECEC';
   for (let i = 0; i < 10; i++) {
     const digits = document.createElement('button');
     digits.setAttribute('class', `number num_${i}`);
@@ -36,9 +43,9 @@ function createKeyPad() {
     digits.innerText = i;
     addEventListener(digits);
     keypad.appendChild(digits);
-    createEqualBtn();
   }
-}
+  createEqualBtn();
+};
 
 function createEqualBtn() {
   const equalBtn = document.createElement('button');
@@ -48,17 +55,17 @@ function createEqualBtn() {
   addEventListener(equalBtn);
   miscBtns.appendChild(equalBtn);
   createClearBtn();
-}
+};
 
 function createClearBtn() {
   const clearBtn = document.createElement('button');
   clearBtn.setAttribute('class', 'misc clear');
   clearBtn.setAttribute('value', 'clear');
-  clearBtn.innerText('C');
+  clearBtn.innerText = 'C';
   addEventListener(clearBtn);
   miscBtns.appendChild(clearBtn);
   createAddBtn();
-}
+};
 
 function createAddBtn() {
   const addBtn = document.createElement('button');
@@ -68,7 +75,7 @@ function createAddBtn() {
   addEventListener(addBtn);
   operations.appendChild(addBtn);
   createSubBtn();
-}
+};
 
 function createSubBtn() {
   const subBtn = document.createElement('button');
@@ -78,36 +85,36 @@ function createSubBtn() {
   addEventListener(subBtn);
   operations.appendChild(subBtn);
   createMulBtn();
-}
+};
 
 function createMulBtn() {
   const mulBtn = document.createElement('button');
   mulBtn.setAttribute('class', 'input');
   mulBtn.setAttribute('value', 'mult');
-  mulBtn.innerText = '+';
+  mulBtn.innerText = 'x';
   addEventListener(mulBtn);
   operations.appendChild(mulBtn);
   createDivBtn();
-}
+};
 
 function createDivBtn() {
   const divBtn = document.createElement('button');
   divBtn.setAttribute('class', 'input');
   divBtn.setAttribute('value', 'div');
-  divBtn.innerText = '+';
+  divBtn.innerText = '/';
   addEventListener(divBtn);
   operations.appendChild(divBtn);
   createPlusMinusBtn();
-}
+};
 
 function createPlusMinusBtn() {
   const plusminusBtn = document.createElement('button');
   plusminusBtn.setAttribute('class', 'input neg');
-  plusminusBtn.setAttribute('value', 'negative')
+  plusminusBtn.setAttribute('value', '-');
   plusminusBtn.innerText = '+/-';
   addEventListener(plusminusBtn);
   keypad.appendChild(plusminusBtn);
-}
+};
 
 function addEventListener(element) {
   element.addEventListener('click', event => {
@@ -141,7 +148,7 @@ function addEventListener(element) {
     displayOutput.innerHTML = calculation.join('');
     []
   })
-}
+};
 
 
 
