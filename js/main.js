@@ -66,6 +66,10 @@ function createEqualBtn() {
   equalBtn.setAttribute('class', 'misc equal');
   equalBtn.setAttribute('value', 'equal');
   equalBtn.innerText = '=';
+  equalBtn.style.fontWeight = 'bold';
+  equalBtn.style.fontSize = '20px';
+  equalBtn.style.marginLeft = '5px';
+  equalBtn.style.backgroundColor = '#E96D63';
   addEventListener(equalBtn);
   miscBtns.appendChild(equalBtn);
   createClearBtn();
@@ -76,6 +80,10 @@ function createClearBtn() {
   clearBtn.setAttribute('class', 'misc clear');
   clearBtn.setAttribute('value', 'clear');
   clearBtn.innerText = 'C';
+  clearBtn.style.fontWeight = 'bold';
+  clearBtn.style.fontSize = '20px';
+  clearBtn.style.marginLeft = '5px';
+  clearBtn.style.backgroundColor = '#E96D63';
   addEventListener(clearBtn);
   miscBtns.appendChild(clearBtn);
   createAddBtn();
@@ -83,9 +91,16 @@ function createClearBtn() {
 
 function createAddBtn() {
   const addBtn = document.createElement('button');
+  operations.style.display = 'grid';
+  operations.style.gridTemplateColumns = 'auto auto auto auto';
+  operations.style.padding = '10px';
   addBtn.setAttribute('class', 'input');
   addBtn.setAttribute('value', 'add');
   addBtn.innerText = '+';
+  addBtn.style.fontWeight = 'bold';
+  addBtn.style.fontSize = '20px';
+  addBtn.style.marginLeft = '5px';
+  addBtn.style.backgroundColor = '#85C1F5';
   addEventListener(addBtn);
   operations.appendChild(addBtn);
   createSubBtn();
@@ -96,6 +111,10 @@ function createSubBtn() {
   subBtn.setAttribute('class', 'input');
   subBtn.setAttribute('value', 'sub');
   subBtn.innerText = '-';
+  subBtn.style.fontWeight = 'bold';
+  subBtn.style.fontSize = '20px';
+  subBtn.style.marginLeft = '5px';
+  subBtn.style.backgroundColor = '#85C1F5';
   addEventListener(subBtn);
   operations.appendChild(subBtn);
   createMulBtn();
@@ -106,6 +125,10 @@ function createMulBtn() {
   mulBtn.setAttribute('class', 'input');
   mulBtn.setAttribute('value', 'mult');
   mulBtn.innerText = 'x';
+  mulBtn.style.fontWeight = 'bold';
+  mulBtn.style.fontSize = '20px';
+  mulBtn.style.marginLeft = '5px';
+  mulBtn.style.backgroundColor = '#85C1F5';
   addEventListener(mulBtn);
   operations.appendChild(mulBtn);
   createDivBtn();
@@ -116,6 +139,10 @@ function createDivBtn() {
   divBtn.setAttribute('class', 'input');
   divBtn.setAttribute('value', 'div');
   divBtn.innerText = '/';
+  divBtn.style.fontWeight = 'bold';
+  divBtn.style.fontSize = '20px';
+  divBtn.style.marginLeft = '5px';
+  divBtn.style.backgroundColor = '#85C1F5';
   addEventListener(divBtn);
   operations.appendChild(divBtn);
   createPlusMinusBtn();
