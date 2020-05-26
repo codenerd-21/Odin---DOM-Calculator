@@ -14,7 +14,6 @@ const displayOutput = document.querySelector('.display-output');
 const keypad = document.querySelector('.keypad');
 const operations = document.querySelector('.operations');
 const miscBtns = document.querySelector('.misc-btns');
-const footer = document.querySelector('.footer');
 
 
 // Append Elements to Parent:
@@ -124,7 +123,7 @@ function createDivBtn() {
 function createPlusMinusBtn() {
   const plusminusBtn = document.createElement('button');
   plusminusBtn.setAttribute('class', 'input neg');
-  plusminusBtn.setAttribute('value', '-');
+  plusminusBtn.setAttribute('value', 'clear');
   plusminusBtn.innerText = '+/-';
   addEventListener(plusminusBtn);
   keypad.appendChild(plusminusBtn);
@@ -133,12 +132,10 @@ function createPlusMinusBtn() {
 function addEventListener(element) {
   element.addEventListener('click', event => {
     let value = element.value;
-    let str = '';
-
+    let str = [];
     switch (value) {
       case 'add':
         str = '+';
-        console.log(str);
         break;
       case 'sub':
         str = '-';
@@ -153,6 +150,7 @@ function addEventListener(element) {
         str = '=';
         break;
       case 'clear':
+        str = 'clear';
         calculation = [];
         break;
       default:
@@ -160,10 +158,19 @@ function addEventListener(element) {
         break;
     }
     calculation.push(str);
-    console.log(calculation);
-    displayOutput.innerHTML = calculation.join('');
+    calculation.join('');
+    if (str === 'clear') {
+      displayOutput.innerHTML = "";
+    } else if (str !== '=') {
+      displayOutput.innerHTML += str;
+    } else {
+      displayOutput.innerHTML = eval(displayOutput.innerHTML);
+    }
   })
 };
+
+
+
 
 
 
