@@ -46,14 +46,15 @@ function createCalculator() {
 }
 
 function createKeypad() {
-  for (let i = 0; i < 10; i++) {
+  for (let i = 9; i >= 0; i--) {
     const digits = document.createElement('button');
+    keypad.style.display = 'grid';
+    keypad.style.gridTemplateColumns = 'auto auto auto';
     digits.setAttribute('class', `number num_${i}`);
     digits.setAttribute('value', i);
     digits.innerText = i;
-    digits.style.height = '40px';
-    digits.style.width = '40px';
-    digits.style.fontSize = '15px';
+    digits.style.fontSize = '30px';
+    digits.style.padding = '20px';
     addEventListener(digits);
     keypad.appendChild(digits);
   }
